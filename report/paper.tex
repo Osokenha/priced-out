@@ -11,14 +11,13 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-\title{Priced Out: A Methodological Framework for Tracking Post-COVID Restaurant Inflation and Closure Risk Across American Cuisines\thanks{Code and reproduction instructions: \url{https://github.com/Osokenha/priced-out}}}
+\title{Priced Out: A Methodological Framework for Tracking Post-COVID Restaurant Inflation and Closure Risk Across American Cuisines}
 
 \author{%
-  Adam Assina, Zain Soomro, Oomer Syed\\
+  Adam Assina, Zain Soomro\\
   CS439 Final Project\\
   \texttt{ada150@scarletmail.rutgers.edu}\\
   \texttt{zs416@scarletmail.rutgers.edu}\\
-  \texttt{os223@scarletmail.rutgers.edu}\\
 }
 
 \begin{document}
@@ -34,7 +33,9 @@ The post-COVID period was uniquely turbulent for the U.S. restaurant industry. B
 
 Answering that question rigorously requires item-level menu data scraped from archived delivery platform pages (Wayback Machine snapshots of GrubHub and DoorDash), Yelp closure metadata, and city-level CPI baselines. Acquiring all of these for three cities at scale is a multi-week data-engineering effort and was not feasible within our project window. Rather than abandon the question, we reframed the project as a \emph{methodological contribution}: we build the complete analytical pipeline that the proposed study would require, validate it end-to-end, and characterize what each component reveals when applied to a realistic synthetic dataset calibrated to published statistics. The pipeline is designed so that, when real scraped data becomes available, only the data-loading layer changes.
 
-Our specific contributions are: (i) a calibrated simulation procedure that generates restaurant-level data matching published city-level CPI and closure-rate distributions; (ii) a leakage-aware preprocessing pipeline that builds a cuisine-city inflation index (CPI-C) from training data only; (iii) a tri-model evaluation framework combining survival analysis, regression, and classification, with an explicit ablation isolating the marginal value of the engineered CPI-C feature; and (iv) an honest empirical finding that the engineered CPI-C provides essentially no uplift over raw cuisine-city encodings that we discuss as a methodological lesson rather than a result to hide.
+Our specific contributions are: (i) a calibrated simulation procedure that generates restaurant-level data matching published city-level CPI and closure-rate distributions; (ii) a leakage-aware preprocessing pipeline that builds a cuisine-city inflation index (CPI-C) from training data only; (iii) a tri-model evaluation framework combining survival analysis, regression, and classification, with an explicit ablation isolating the marginal value of the engineered CPI-C feature; and (iv) an honest empirical finding that the engineered CPI-C provides essentially no uplift over raw cuisine-city encodings that we discuss as a methodological lesson rather than a result to hide.\\
+
+
 
 \textbf{Code availability.} All code, data simulation scripts, model training, evaluation notebooks, and figures are available at \url{https://github.com/Osokenha/priced-out}. The pipeline reproduces deterministically from random seed 42.
 
